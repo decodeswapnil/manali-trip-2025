@@ -95,7 +95,9 @@
   --space-16: 16px;
   --space-20: 20px;
   --space-24: 24px;
+  --space-28: 28px;
   --space-32: 32px;
+  --space-40: 40px;
 
   /* Border Radius */
   --radius-base: 8px;
@@ -110,6 +112,110 @@
   --mountain-dark: rgba(44, 62, 80, 1);
   --snow-white: rgba(250, 250, 250, 1);
   --forest-green: rgba(34, 139, 34, 1);
+}
+
+
+
+/* --- COMPACT MODE OVERRIDES (GLOBAL SPACING REDUCTION) --- */
+
+.slide {
+  padding: 20px !important;
+  gap: 16px !important;
+}
+
+.group-card {
+  padding: 16px !important;
+  margin-bottom: 12px !important;
+}
+
+.group-card h3 {
+  margin-bottom: 12px !important;
+}
+
+.checklist {
+  gap: 6px !important;
+}
+
+.checklist li {
+  padding-left: 16px !important;
+  margin-bottom: 0 !important;
+}
+
+.packing-item,
+.tip-item {
+  padding: 12px 16px !important;
+  margin-bottom: 6px !important;
+}
+
+.overview-card {
+  padding: 20px !important;
+  margin-bottom: 12px !important;
+}
+
+.overview-card li {
+  margin-bottom: 4px !important;
+}
+
+.day-header {
+  padding: 16px !important;
+  margin-bottom: 16px !important;
+}
+
+.slide-header {
+  margin-bottom: 20px !important;
+  padding-bottom: 12px !important;
+}
+
+
+
+
+
+
+
+/* --- DARK PILL THEME (GLOBAL) --- */
+
+.group-card,
+.checklist li,
+.packing-item,
+.tip-item,
+.overview-card li {
+    background: rgba(255,255,255,0.03) !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 14px !important;
+    padding: 14px 18px !important;
+    backdrop-filter: blur(4px);
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.05),
+        inset 0 -1px 2px rgba(0,0,0,0.55),
+        0 4px 14px rgba(0,0,0,0.35) !important;
+}
+
+/* Slightly stronger card for major sections */
+.group-card {
+    background: rgba(255,255,255,0.04) !important;
+}
+
+/* Hover + selection */
+.selectable:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.45) !important;
+}
+
+.selectable.selected {
+    background: rgba(50,184,198,0.18) !important;
+    border-color: rgba(50,184,198,0.35) !important;
+    color: white !important;
+}
+
+/* Overview card container */
+.overview-card {
+    background: rgba(255,255,255,0.03) !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 14px !important;
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.05),
+        inset 0 -1px 2px rgba(0,0,0,0.55),
+        0 4px 14px rgba(0,0,0,0.35) !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -176,9 +282,10 @@ body {
     background: var(--color-surface);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
-    padding: var(--space-32);
+    padding: var(--space-40);
     position: relative;
     overflow-y: auto;
+    gap: var(--space-24);
 }
 
 .slide.active {
@@ -195,7 +302,7 @@ body {
 }
 
 .title-slide h1 {
-    font-size: 48px;
+    font-size: 56px;
     font-weight: var(--font-weight-bold);
     color: var(--color-primary);
     margin-bottom: var(--space-16);
@@ -248,7 +355,7 @@ body {
 }
 
 .slide-header h2 {
-    font-size: var(--font-size-4xl);
+    font-size: 32px;
     color: var(--color-primary);
     font-weight: var(--font-weight-bold);
 }
@@ -319,11 +426,16 @@ body {
 
 /* Day Slides */
 .day-header {
-    background: var(--color-bg-2);
-    padding: var(--space-16);
-    border-radius: var(--radius-base);
-    margin-bottom: var(--space-20);
-    border: 1px solid var(--color-border);
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 16px !important;
+    padding: 16px !important;
+    margin-bottom: 18px !important;
+    backdrop-filter: blur(6px);
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.05),
+        inset 0 -1px 2px rgba(0,0,0,0.55),
+        0 4px 14px rgba(0,0,0,0.35) !important;
 }
 
 .day-date {
@@ -347,6 +459,80 @@ body {
     color: var(--color-text);
 }
 
+.day0-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.day1-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.day2-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.day3-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.day4-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.group-card {
+    background: var(--color-bg-3);
+    padding: var(--space-24);
+    border-radius: var(--radius-base);
+    border: 1px solid var(--color-border);
+    line-height: 1.55;
+}
+
+.group-card h3 {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary);
+    margin-bottom: var(--space-16);
+    font-weight: var(--font-weight-semibold);
+}
+
+.checklist {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.checklist li {
+    padding-left: 24px;
+    position: relative;
+    font-size: var(--font-size-base);
+    line-height: 1.55;
+}
+
+        .checklist li::before {
+            content: "";
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .check-item input[type="checkbox"] {
+            transform: scale(1.3);
+            cursor: pointer;
+        }
+        .check-completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
 /* Lists */
 .packing-grid {
     display: grid;
@@ -354,14 +540,22 @@ body {
     gap: var(--space-12);
 }
 
-.packing-item,
-.tip-item {
-    padding: var(--space-12) var(--space-16);
+.packing-item {
+    padding: var(--space-16) var(--space-20);
     background: var(--color-bg-4);
     border-radius: var(--radius-base);
     border: 1px solid var(--color-border);
     font-size: var(--font-size-base);
     color: var(--color-text);
+}
+.tip-item {
+    padding: var(--space-16) var(--space-20);
+    background: var(--color-bg-4);
+    border-radius: var(--radius-base);
+    border: 1px solid var(--color-border);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    line-height: 1.55;
 }
 
 .tips-list {
@@ -379,15 +573,16 @@ body {
 
 .overview-card {
     background: var(--color-bg-5);
-    padding: var(--space-20);
+    padding: var(--space-24);
     border-radius: var(--radius-base);
     border: 1px solid var(--color-border);
+    line-height: 1.55;
 }
 
 .overview-card h3 {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-2xl);
     color: var(--color-primary);
-    margin-bottom: var(--space-12);
+    margin-bottom: var(--space-16);
     font-weight: var(--font-weight-semibold);
 }
 
@@ -505,6 +700,33 @@ body {
     padding: 0 var(--space-16);
 }
 
+/* Selectable pill-style items */
+.selectable {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,24,0.06);
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+  transition: all 160ms ease;
+  font-weight: var(--font-weight-medium);
+}
+.selectable:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(2,6,23,0.06);} 
+.selectable.selected {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+  border-color: rgba(var(--color-teal-500-rgb), 0.25);
+}
+/* hide native checkboxes — visual selection handled by .selected */
+.check-item input[type="checkbox"]{ display:none; }
+
+/* make packing items visually identical to selectable pills */
+.packing-item.selectable { display:inline-flex; align-items:center; padding:12px 18px; border-radius:12px; }
+.overview-card li.selectable { display:block; padding:10px 0; border-radius:8px; }
+
 /* Responsive */
 @media (max-width: 768px) {
     .slide {
@@ -543,18 +765,6 @@ body {
         font-size: var(--font-size-sm);
     }
 }
-        /* Slide Images & Activity Icons */
-        .slide-image {
-            width: 100%;
-            border-radius: var(--radius-base);
-            margin-bottom: var(--space-20);
-            object-fit: cover;
-            max-height: 260px;
-        }
-        .activity-icon {
-            margin-right: 6px;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
@@ -590,8 +800,6 @@ body {
                             <li>Solang Valley adventure sports</li>
                             <li>Chalal trek in Kasol</li>
                             <li>Atal Tunnel experience</li>
-                            <li>Riverside cafés in Kasol</li>
-                            <li>Sissu Lake & Waterfall exploration</li>
                         </ul>
                     </div>
                     <div class="overview-card">
@@ -665,10 +873,6 @@ body {
                         <span class="item-cost">₹6,000</span>
                     </div>
                 </div>
-                <div class="cost-item">
-                    <span class="item-name">Homestay Details</span>
-                    <span class="item-cost">3BHK · 3 Nights · ₹14,000</span>
-                </div>
                 <div class="cost-total">
                     <div class="cost-total-grid">
                         <div class="total-item">
@@ -693,12 +897,36 @@ body {
                 <div class="day-header">
                     <div class="day-date">5 December (Night)</div>
                 </div>
-                <ul class="activities-list">
-                    <li>Leave Chandigarh at night</li>
-                    <li>Overnight cab journey</li>
-                    <li>Reach Manali early morning (6-7 AM)</li>
-                    <li>Distance: 310 km | Duration: 8-9 hours</li>
-                </ul>
+                <div class="day0-group">
+                    <div class="group-card">
+                        <h3>🚐 Travel Summary</h3>
+                        <p><strong>Start:</strong> Chandigarh (Night of 5 Dec)</p>
+                        <p><strong>End:</strong> Manali (Early Morning, 6–7 AM)</p>
+                        <p><strong>Distance:</strong> 310 km</p>
+                        <p><strong>Duration:</strong> 8–9 hours</p>
+                        <p><strong>Route:</strong> Chandigarh → Bilaspur → Mandi → Kullu → Manali</p>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🧳 Before You Depart</h3>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Carry light snacks & water</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Dress in layers (temperature drops at night)</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Keep a music playlist ready</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Have power bank & charger accessible</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>⏱️ Night Travel Tips</h3>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Take short breaks at dhabas during the journey</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Ensure emergency numbers are saved</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Avoid heavy meals before sleeping</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Keep your ID & essentials handy</span></label></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -707,27 +935,52 @@ body {
             <div class="slide-header">
                 <h2>Day 1: Solang Valley Adventure</h2>
             </div>
-            <img class="slide-image" src="https://images.unsplash.com/photo-1572609234122-2308f1a3d8c3?q=80&w=1080" alt="Solang Valley">
             <div class="slide-content">
                 <div class="day-header">
                     <div class="day-date">6 December</div>
                 </div>
-                <ul class="activities-list">
-                    <li>Reach Manali early morning (6:00–7:00 AM)</li>
-                    <li>🏠 Check in to 3BHK homestay, freshen up, have breakfast</li>
-                    <li>Rest for a couple of hours after overnight journey</li>
-                    <li>🏍️ Visit bike rental shop—collect 3 Royal Enfield bikes</li>
-                    <li>🏍️ Complete paperwork and safety briefing</li>
-                    <li>🏍️ Refuel bikes and test ride around Manali</li>
-                    <li>🏍️ Ride to Solang Valley (14 km | 30–40 mins)</li>
-                    <li>🚠 Gondola ropeway ride (optional)</li>
-                    <li>🎿 Adventure sports: paragliding, zorbing, skiing (seasonal)</li>
-                    <li>📸 Photography at mountain viewpoints</li>
-                    <li>🍜 Enjoy Maggi & snacks at Solang stalls</li>
-                    <li>🌄 Explore the meadows and streams</li>
-                    <li>🎶 Return to Old Manali and explore cafés</li>
-                    <li>Dinner & live music at Old Manali cafés</li>
-                </ul>
+                <div class="day1-group">
+                    <div class="group-card">
+                        <h3>🏡 Morning: Arrival & Homestay Check-in</h3>
+                        <p>Settle into your 3BHK homestay, freshen up, and prepare for an exciting first day in Manali.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Drop luggage and freshen up</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Have a light breakfast</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Layer up for cold weather</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🏍️ Bike Pickup & Preparation</h3>
+                        <p>Collect your bikes for a thrilling ride through the mountains.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Pick up rented bikes</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Refuel at nearest petrol pump</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Check brakes and tire pressure</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🏔️ Solang Valley Experience</h3>
+                        <p>Ride to Solang Valley (14 km) and enjoy adventure experiences.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Views of snow-capped peaks</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Ropeway (optional)</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>ATV rides, zipline, paragliding</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Photography among scenic backdrops</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🌆 Evening in Old Manali</h3>
+                        <p>Return to Old Manali for a relaxing evening filled with food, music and café culture.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Walk through Old Manali market</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Try local cafés and bakeries</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Live music options available</span></label></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -736,27 +989,61 @@ body {
             <div class="slide-header">
                 <h2>Day 2: Kasol &amp; Manikaran Trip</h2>
             </div>
-            <img class="slide-image" src="https://images.unsplash.com/photo-1598097634768-88a35f1f7f13?q=80&w=1080" alt="Kasol Parvati River">
             <div class="slide-content">
                 <div class="day-header">
                     <div class="day-date">7 December</div>
                 </div>
-                <ul class="activities-list">
-                    <li>🍳 Wake up early & breakfast at homestay</li>
-                    <li>🏍️ Start bike journey to Kasol at 8:00 AM (75 km | 2.5–3 hrs)</li>
-                    <li>🌄 Stop at Kullu/Bhuntar viewpoints en route</li>
-                    <li>🛍️ Explore Kasol market & riverside cafés</li>
-                    <li>🌊 Walk along Parvati River</li>
-                    <li>🥗 Visit Evergreen Café / Moon Dance Café (optional)</li>
-                    <li>🌲 Chalal Trek (45–60 mins forest trail)</li>
-                    <li>🥗 Return to Kasol for lunch</li>
-                    <li>🕌 Ride to Manikaran Sahib Gurudwara (4 km | 10 mins)</li>
-                    <li>🔥 Experience natural hot springs</li>
-                    <li>🍛 Enjoy langar meal</li>
-                    <li>🛍️ Visit bazaar around the gurudwara</li>
-                    <li>🏍️ Return ride to Manali by 4:30–5:00 PM</li>
-                    <li>🛍️ Evening in Old Manali: cafés, shopping, live music</li>
-                </ul>
+                <div class="day2-group">
+                    <div class="group-card">
+                        <h3>🏍️ Morning Ride to Kasol</h3>
+                        <p>Begin early for a refreshing mountain ride from Manali to Kasol.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Start early to avoid traffic</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Ride 75 km (2.5–3 hours)</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Scenic route via Kullu</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🛍️ Kasol Market & Parvati River</h3>
+                        <p>Experience Kasol’s vibrant café culture, riverside spots, and local stores.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Walk by the Parvati river</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Explore Israeli cafés</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Visit handicraft shops</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🌲 Chalal Trek</h3>
+                        <p>A light 45–60 min trek with beautiful river views and forest trails.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Easy trail for all levels</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Great photo opportunities</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Small cafés on the way</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🛕 Manikaran Sahib</h3>
+                        <p>Visit the famous gurudwara known for spiritual vibes and natural hot springs.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Gurudwara visit</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Hot springs experience</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Enjoy langar meal</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🌆 Return to Manali</h3>
+                        <p>Ride back to Manali by evening after a fulfilling day.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Refuel bikes if needed</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Reach homestay before dark</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Evening rest / light exploration</span></label></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -765,28 +1052,71 @@ body {
             <div class="slide-header">
                 <h2>Day 3: Sissu Valley via Atal Tunnel</h2>
             </div>
-            <img class="slide-image" src="https://images.unsplash.com/photo-1604145559206-0b660d913d66?q=80&w=1080" alt="Atal Tunnel">
-            <img class="slide-image" src="https://images.unsplash.com/photo-1622214352492-0e67e693deb6?q=80&w=1080" alt="Sissu Lake">
             <div class="slide-content">
                 <div class="day-header">
                     <div class="day-date">8 December</div>
                 </div>
-                <ul class="activities-list">
-                    <li>🍳 Breakfast at homestay</li>
-                    <li>Return rented bikes</li>
-                    <li>🚕 Board cab for Sissu trip (60 km | 1.5–2 hrs)</li>
-                    <li>🛣️ Drive through 9.02 km Atal Tunnel — world’s longest above 10,000 ft</li>
-                    <li>📸 Stop at North Portal for photos</li>
-                    <li>Reach Sissu Village (10:30 AM)</li>
-                    <li>🏔️ Visit Sissu Lake — clear waters & mountain reflections</li>
-                    <li>💦 Explore Sissu Waterfall view area</li>
-                    <li>❄️ Play in snow at higher-altitude spots (if available)</li>
-                    <li>🍜 Enjoy Maggi, momos, thukpa at local dhabas</li>
-                    <li>🌿 Take short nature walks & interact with locals</li>
-                    <li>Return to Manali by 5:30–6:00 PM</li>
-                    <li>🛍️ Evening shopping at Mall Road</li>
-                    <li>Dinner at local restaurants & pack for departure</li>
-                </ul>
+                <div class="day3-group">
+                    <div class="group-card">
+                        <h3>🏍️ Return Bikes</h3>
+                        <p>Start your day by returning the rented bikes at the shop before leaving for Sissu.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Verify fuel level</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Cross-check damages (if any)</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Collect security deposit</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🚕 Cab Trip to Sissu</h3>
+                        <p>Begin a scenic 60 km cab journey through the heart of the mountains.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>60 km total distance</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Snow views along the route</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Cab is available for full day</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🛣️ Atal Tunnel Experience</h3>
+                        <p>Travel through the world‑famous 9.02 km Atal Tunnel—an engineering marvel.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Experience temperature drop at exit</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Observe sudden landscape change</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Perfect spot for photos at North Portal</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🏞️ Sissu Lake & Valley</h3>
+                        <p>Explore the peaceful lake with stunning mountain backdrops.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Walk around the lake</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Photography spots everywhere</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Enjoy calm breeze & scenic views</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>💧 Waterfall & Snow Valley</h3>
+                        <p>Visit the famous Sissu Waterfall and snow‑covered valley (depending on weather).</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Optional short hike</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Carry gloves—area is cold</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Food stalls available nearby</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🌆 Return to Manali</h3>
+                        <p>Head back to Manali by evening and enjoy a relaxing night.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Reach before dark</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Eat at Old Manali cafés</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Rest for next day’s travel</span></label></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -795,19 +1125,53 @@ body {
             <div class="slide-header">
                 <h2>Day 4: Return Journey</h2>
             </div>
-            <img class="slide-image" src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?q=80&w=1080" alt="Manali Roads">
             <div class="slide-content">
                 <div class="day-header">
                     <div class="day-date">9 December</div>
                 </div>
-                <ul class="activities-list">
-                    <li>🍳 Breakfast & checkout from homestay</li>
-                    <li>🛍️ Final shopping at local markets</li>
-                    <li>🛕 Optional visit: Hidimba Temple / Vashisht Temple</li>
-                    <li>🚕 Board cab for Chandigarh (310 km | 8–9 hrs)</li>
-                    <li>🛣️ Route: Manali → Kullu → Mandi → Bilaspur → Chandigarh</li>
-                    <li>📍 Reach Chandigarh by 8–9 PM (or early morning next day)</li>
-                </ul>
+                <div class="day4-group">
+
+                    <div class="group-card">
+                        <h3>🏡 Checkout & Morning Routine</h3>
+                        <p>Wrap up your stay in Manali and prepare for the return journey.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Pack all belongings</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Check rooms before leaving</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Have breakfast at homestay or nearby café</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🛍️ Last‑Minute Shopping</h3>
+                        <p>Quick stop in Manali market before departure.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Buy souvenirs</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Pick up snacks for the journey</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Warm clothes / handicrafts (optional)</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🚕 Return Journey to Chandigarh</h3>
+                        <p>Board the cab and begin the 310 km scenic drive back to Chandigarh.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Distance: 310 km</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Duration: 8–9 hours</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Breaks at Mandi / Bilaspur</span></label></li>
+                        </ul>
+                    </div>
+
+                    <div class="group-card">
+                        <h3>🌙 Expected Arrival</h3>
+                        <p>Reach Chandigarh by night or early morning depending on departure time.</p>
+                        <ul class="checklist">
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Unload luggage</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Verify all items before ending trip</span></label></li>
+                            <li><label class="check-item"><input type="checkbox" class="task-check"> <span>Trip officially concludes 🎉</span></label></li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
         </div>
 
@@ -855,7 +1219,6 @@ body {
             <h2>Create Unforgettable Memories<br>in the Mountains</h2>
             <p>Get ready for an amazing adventure with your group!</p>
             <p>Safe travels and enjoy every moment! 🏔️</p>
-            <p>Itinerary prepared for 6 travelers · Total Budget ₹63,000 · Per Person ₹10,500</p>
             <div class="emergency-contacts">
                 <h3>Emergency Contacts</h3>
                 <div class="contacts-grid">
@@ -876,6 +1239,9 @@ body {
     </div>
 
     <script>
+        // Checklist interactivity placeholder (kept for reference)
+        // Actual navigation script begins below
+
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
@@ -884,10 +1250,8 @@ body {
         const slideCounter = document.getElementById('slideCounter');
 
         function showSlide(n) {
-            // Remove active class from all slides
             slides.forEach(slide => slide.classList.remove('active'));
-            
-            // Wrap around if necessary
+
             if (n >= totalSlides) {
                 currentSlide = totalSlides - 1;
             } else if (n < 0) {
@@ -895,14 +1259,11 @@ body {
             } else {
                 currentSlide = n;
             }
-            
-            // Show current slide
+
             slides[currentSlide].classList.add('active');
-            
-            // Update counter
+
             slideCounter.textContent = `Slide ${currentSlide + 1} of ${totalSlides}`;
-            
-            // Update button states
+
             prevBtn.disabled = currentSlide === 0;
             nextBtn.disabled = currentSlide === totalSlides - 1;
         }
@@ -915,20 +1276,31 @@ body {
             showSlide(currentSlide - 1);
         }
 
-        // Event listeners
         nextBtn.addEventListener('click', nextSlide);
         prevBtn.addEventListener('click', prevSlide);
 
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') {
-                nextSlide();
-            } else if (e.key === 'ArrowLeft') {
-                prevSlide();
-            }
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
         });
 
-        // Initialize
+        // --- Selectable UI behavior (no persistence) ---
+        function makeSelectable(el){
+          if(!el) return;
+          el.classList.add('selectable');
+          el.setAttribute('role','button');
+          el.tabIndex = 0;
+          el.addEventListener('click', () => el.classList.toggle('selected'));
+          el.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.classList.toggle('selected'); } });
+        }
+
+        // Apply to all checklist items
+        document.querySelectorAll('.checklist li').forEach(li => makeSelectable(li));
+        // Apply to packing items
+        document.querySelectorAll('.packing-item').forEach(div => makeSelectable(div));
+        // Apply to overview list items
+        document.querySelectorAll('.overview-card li').forEach(li => makeSelectable(li));
+
         showSlide(0);
     </script>
 </body>
